@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+.header {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(70, 128, 77);
+}
+.linerChart {
+    margin-top: 15px;
+    width: 400px;
+    height: 200px;
+    border: solid black 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.totalCharts {
+    border: solid black 2px;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.miniCHarts {
+    display: inline-block;
+}
+.agGridd {
+    display: inline-block;
+}
