@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react'
-// import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
-function LinerCHart() {
-    const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }]
+import ReactDOM from 'react-dom'
+import { Chart, LineAdvance } from 'bizcharts'
 
+function LinerCHart(props) {
     return (
         <div className="linerChart">
-            {/* <LineChart width={400} height={400} data={Ndata}>
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-            </LineChart> */}
+            <span>{props.name}</span>
+            <Chart
+                padding={[10, 20, 50, 40]}
+                autoFit
+                height={200}
+                data={props.data}
+            >
+                <LineAdvance
+                    shape="smooth"
+                    point
+                    area
+                    position="NewConfirmed*TotalConfirmed"
+                />
+            </Chart>
         </div>
     )
 }

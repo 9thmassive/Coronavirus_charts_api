@@ -5,17 +5,8 @@ import LinerCHart from './ChartsWW/LinerChart'
 import React, { useEffect, useState } from 'react'
 
 function App() {
-    const [wwData, setWwData] = useState([
-        {
-            Country: 'noData',
-            NewConfirmed: 'noData',
-            TotalConfirmed: 'noData',
-            NewDeaths: 'noData',
-            TotalDeaths: 'noData',
-            NewRecovered: 'noData',
-            TotalRecovered: 'noData',
-        },
-    ])
+    const [wwData, setWwData] = useState(false)
+    const [wwPerDay, setWwPerDAy] = useState('')
 
     useEffect(() => {
         fetch('https://api.covid19api.com/summary')
@@ -23,19 +14,40 @@ function App() {
             .then((data) => {
                 setWwData(() => data.Countries)
             })
-        console.log('useEffect loaded')
     }, [])
-
+    useEffect(() => {
+        fetch(`https://api.covid19api.com/world`)
+            .then((response) => response.json())
+            .then((data) => {
+                setWwPerDAy(() => data)
+            })
+    }, [wwData])
+    const dataTest = [
+        {
+            day: '20.01.2020',
+            city: 'WW',
+            count: 200,
+        },
+        {
+            month: '21.01.2020',
+            city: 'WW',
+            count: 300,
+        },
+        {
+            month: '23.01.2020',
+            city: 'WW',
+            count: 600,
+        },
+    ]
     return (
         <div className="App">
             <Header />
             <div className="totalCharts">
                 <div className="miniCHarts">
-                    <LinerCHart />
+                    <LinerCHart name="Ttotal Covid Data" data={wwPerDay} />
                     <LinerCHart />
                     <LinerCHart />
                 </div>
-
                 <CountryAllGrid wwData={wwData} />
             </div>
         </div>
