@@ -6,9 +6,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 function CountryAllGrid(props) {
-    function nameOF(e) {
-        alert(e.taret.value)
-    }
+
     return (
         <div className="agGridd">
             <button>Sorted by New Confrimed</button>
@@ -23,7 +21,7 @@ function CountryAllGrid(props) {
             >
                 <AgGridReact rowData={props.wwData}>
                     <AgGridColumn
-                        onCLick={nameOF}
+                        onCellClicked={props.cellCLick}
                         field="Country"
                     ></AgGridColumn>
                     <AgGridColumn field="NewConfirmed"></AgGridColumn>

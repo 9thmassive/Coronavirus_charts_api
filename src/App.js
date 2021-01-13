@@ -20,6 +20,7 @@ function App() {
     const [wwPerDay, setWwPerDAy] = useState('')
     const [pieDeath, setPieDeath] = useState('')
     const [pieInfected, setPieInfected] = useState('')
+    const [path, setPath] = useState('')
 
     useEffect(() => {
         fetch('https://api.covid19api.com/summary')
@@ -46,43 +47,20 @@ function App() {
         }
         console.log(pieDeath)
     }, [wwData])
-    const dataTest = [
-        //for liner chart example
-        {
-            day: '20.01.2020',
-            city: 'WW',
-            count: 200,
-        },
-        {
-            month: '21.01.2020',
-            city: 'WW',
-            count: 300,
-        },
-        {
-            month: '23.01.2020',
-            city: 'WW',
-            count: 600,
-        },
-    ]
+
+    function changePath(e) {
+        setPath(() => e.value)
+        console.log(e)
+    }
+
     return (
         <>
             <div className="App">
                 <Header />
                 <Router>
-                    <ol>
-                        <li>
-                            <Link to="/"> no path</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">about</Link>
-                        </li>
-                        <li>
-                            <Link to="/users">User</Link>
-                        </li>
-                    </ol>
-                    <Switch>
-                        <Route path="/">
-                            <div className="totalCharts">
+                    <div className="totalCharts">
+                        <Switch>
+                            <Route exact path="/">
                                 <div className="miniCHarts">
                                     <LinerCHart
                                         name="Ttotal Covid Data"
@@ -101,16 +79,18 @@ function App() {
                                         PieDataChart={pieInfected}
                                     />
                                 </div>
-                                <CountryAllGrid wwData={wwData} />
-                            </div>
-                        </Route>
-                        <Route path="/about">
-                            <h1> about 1111111111111</h1>
-                        </Route>
-                        <Route path="/users">
-                            <h1>User </h1>
-                        </Route>
-                    </Switch>
+                                <Link to={`/${path}`}>
+                                    <CountryAllGrid
+                                        cellCLick={changePath}
+                                        wwData={wwData}
+                                    />
+                                </Link>
+                            </Route>
+                            <Route path={`/${path}`}>
+                                <LessRouting title={path} />
+                            </Route>
+                        </Switch>
+                    </div>
                 </Router>
             </div>
         </>
