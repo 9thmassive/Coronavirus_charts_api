@@ -47,13 +47,12 @@ function App() {
         }
         console.log(pieDeath)
     }, [wwData])
+
     useEffect(() => {
         console.log(path, 'useEffect')
     }, [path])
     function changePath(e) {
         setPath(() => e.value)
-        setPath((prevVAl) => (prevVAl = e.value))
-        console.log(e)
     }
 
     return (
@@ -86,13 +85,13 @@ function App() {
                                     <CountryAllGrid
                                         cellCLick={changePath}
                                         wwData={wwData}
-                                        setPath={setPath}
                                     />
                                 </Link>
                             </Route>
-                            <Route path={`/${path}`}>
-                                <LessRouting title={path} />
-                            </Route>
+                            <Route
+                                path={`/${path}`}
+                                component={<LessRouting title={path} />}
+                            ></Route>
                         </Switch>
                     </div>
                 </Router>

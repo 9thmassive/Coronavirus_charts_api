@@ -20,7 +20,7 @@ function CountryAllGrid(props) {
             >
                 <AgGridReact rowData={props.wwData}>
                     <AgGridColumn
-                        onCellClicked={(e) => props.setPath(e.value)}
+                        onCellClicked={props.cellCLick}
                         field="Country"
                     ></AgGridColumn>
                     <AgGridColumn field="NewConfirmed"></AgGridColumn>
