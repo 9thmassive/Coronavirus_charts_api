@@ -16,7 +16,7 @@ function LinerCHart(props) {
                     shape="smooth"
                     point
                     area
-                    position="NewConfirmed*TotalConfirmed"
+                    position={`NewConfirmed*TotalConfirmed`}
                 />
             </Chart>
         </div>

@@ -4,7 +4,7 @@ import { PieChart } from 'bizcharts'
 
 function PiChart(props) {
     return (
-        <div>
+        <div className="pieCHart">
             <PieChart
                 data={props.PieDataChart}
                 title={{
@@ -15,7 +15,7 @@ function PiChart(props) {
                     visible: true,
                     text: props.description,
                 }}
-                radius={0.999}
+                radius={0.6}
                 angleField={props.dataValue}
                 colorField="Country"
                 label={{

@@ -38,3 +38,7 @@ code {
 .agGridd {
     display: inline-block;
 }
+.pieCHart {
+    width: 350px;
+    height: 300px;
+}

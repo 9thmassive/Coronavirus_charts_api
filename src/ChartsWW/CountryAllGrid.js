@@ -6,6 +6,9 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 function CountryAllGrid(props) {
+    function nameOF(e) {
+        alert(e.taret.value)
+    }
     return (
         <div className="agGridd">
             <button>Sorted by New Confrimed</button>
@@ -16,10 +19,13 @@ function CountryAllGrid(props) {
             <br />
             <div
                 className="ag-theme-alpine"
-                style={{ height: 600, width: 800 }}
+                style={{ height: 960, width: 820 }}
             >
                 <AgGridReact rowData={props.wwData}>
-                    <AgGridColumn field="Country"></AgGridColumn>
+                    <AgGridColumn
+                        onCLick={nameOF}
+                        field="Country"
+                    ></AgGridColumn>
                     <AgGridColumn field="NewConfirmed"></AgGridColumn>
                     <AgGridColumn field="TotalConfirmed"></AgGridColumn>
                     <AgGridColumn field="NewDeaths"></AgGridColumn>
