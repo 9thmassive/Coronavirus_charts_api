@@ -6,7 +6,6 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css'
 
 function CountryAllGrid(props) {
-
     return (
         <div className="agGridd">
             <button>Sorted by New Confrimed</button>
@@ -21,7 +20,7 @@ function CountryAllGrid(props) {
             >
                 <AgGridReact rowData={props.wwData}>
                     <AgGridColumn
-                        onCellClicked={props.cellCLick}
+                        onCellClicked={(e) => props.setPath(e.value)}
                         field="Country"
                     ></AgGridColumn>
                     <AgGridColumn field="NewConfirmed"></AgGridColumn>

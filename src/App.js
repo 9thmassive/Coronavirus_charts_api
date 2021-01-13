@@ -47,9 +47,12 @@ function App() {
         }
         console.log(pieDeath)
     }, [wwData])
-
+    useEffect(() => {
+        console.log(path, 'useEffect')
+    }, [path])
     function changePath(e) {
         setPath(() => e.value)
+        setPath((prevVAl) => (prevVAl = e.value))
         console.log(e)
     }
 
@@ -83,6 +86,7 @@ function App() {
                                     <CountryAllGrid
                                         cellCLick={changePath}
                                         wwData={wwData}
+                                        setPath={setPath}
                                     />
                                 </Link>
                             </Route>
