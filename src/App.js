@@ -81,7 +81,7 @@ function App() {
                                         PieDataChart={pieInfected}
                                     />
                                 </div>
-                                <Link to={`/${path}`}>
+                                <Link to='/country'>
                                     <CountryAllGrid
                                         cellCLick={changePath}
                                         wwData={wwData}
@@ -89,7 +89,7 @@ function App() {
                                 </Link>
                             </Route>
                             <Route
-                                path={`/${path}`}
+                                path='/country'
                                 component={<LessRouting title={path} />}
                             ></Route>
                         </Switch>
